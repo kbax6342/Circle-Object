@@ -4,36 +4,59 @@ import java.util.Scanner;
 public class CircleApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Scanner input2 = new Scanner(System.in);
+		
 		
 		//Declarations
-		double radius;
+		double radius = 0;
+		double r = 0;
+		boolean  addCircle = true;
+		int total = 1;
+		double circumference = 0;
+		double area = 0;
 		
-		//Utilities
-		Scanner input = new Scanner (System.in);
 		
-		
-
 		//Welcome to the Application
-		System.out.println("Welcome to the Circl App\n");
+		System.out.println("Welcome to the Circle App\n");
 		
 		//Caption describing the program
-		System.out.println("~ ~This is where you can input any radius and you can creat a circle!!!~ ~");
+		System.out.println("~ ~This is where you can input any radius and you can creat a circle!!!~ ~\n");
 		
-		//Prompt the user to enter a radius
-		System.out.println("Please enter the radius: ");
-		radius = input.nextInt();
+		while(addCircle){
+			
+			double input = Circle.radiusValidator();
+			
+			Circle newCircle = new Circle(input);	
+			
+			String finalPrintCircum = Circle.getFormattedCircumference();
+			
+			System.out.printf(finalPrintCircum + "\n");
+			
+			String finalPrintArea = Circle.getFormattedArea();
+			
+			System.out.println(finalPrintArea);
 		
 		
 		
 		
+		System.out.println("Would you you like to add another circle? (continue y/n) ");
+		String cont = input2.nextLine();
 		
-		//The application displays an error if the user enters invalid data
-		//When the user enters valid that the application calculates  the area and
-		//circumference of the circle and rounds to the nearest 2 decimal places.
-		//The application displays a good bye message that also indicates the number of circles the user bild when t e user chooes not to continue
+		if(cont.equalsIgnoreCase("y")){
+			addCircle = true;
+			total++;
+		}else{
+			addCircle = false;
+			System.out.println("Goodbye. You created " + total + " Circle objects(s).");
+		}
 		
 		
+		
+	
+	
+
+		}
 	}
 
 }
